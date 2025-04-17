@@ -54,14 +54,14 @@ This project predicts whether a loan applicant is likely to experience serious d
 ## Outputs
 
 - Model predictions saved to: `output/random_forest_predictions.csv`
-- Key visualizations: correlation heatmap, ROC curves, feature importance
+- Key visualisations: correlation heatmap, ROC curves, feature importance
 
 ---
 
 ## Future Improvements
 
-- Explore more advanced models (e.g. XGBoost, LightGBM)
-- Add interpretability tools (e.g. SHAP)
+- Explore more advanced models (eg XGBoost, LightGBM)
+- Add interpretability tools (eg SHAP)
 - Engineer domain-specific features such as late payment scores
 
 ---
