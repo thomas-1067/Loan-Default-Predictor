@@ -8,7 +8,6 @@ This project predicts whether a loan applicant is likely to experience serious d
 
 - **Source**: [Give Me Some Credit (Kaggle)](https://www.kaggle.com/c/GiveMeSomeCredit)
 - Training data: `cs-training.csv` (150,000+ rows)
-- Test data: `cs-test.csv` (unlabelled for prediction only)
 
 ---
 
