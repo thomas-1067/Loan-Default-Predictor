@@ -1,87 +1,72 @@
 # Loan Default Prediction Model
 
-This project predicts whether a loan applicant is likely to experience serious delinquency within the next two years. The goal is to identify at-risk borrowers early using historical credit data and apply this to real-world risk management.
+This project predicts whether a loan applicant is likely to experience serious delinquency within the next two years. The aim is to identify high-risk borrowers early using structured credit data and apply practical modeling techniques suited to financial risk environments.
 
 ---
 
 ## Dataset
 
 - **Source**: [Give Me Some Credit (Kaggle)](https://www.kaggle.com/c/GiveMeSomeCredit)
-- Two datasets used:
-  - `cs-training.csv`: Full training data (150,000+ rows)
-  - `cs-test.csv`: Unlabeled test set for scoring only
-  
+- Training data: `cs-training.csv` (150,000+ rows)
+- Test data: `cs-test.csv` (unlabeled for prediction only)
+
 ---
 
-## Workflow
+## Project Workflow
 
-1. **Data Inspection**  
-   - Identified missing values, duplicates, and invalid ages  
-   - Visualized class imbalance and distributions
+1. **Data Inspection and Cleaning**
+   - Removed duplicates and invalid age entries
+   - Imputed missing values with median
+   - Optionally capped outliers (99th percentile)
 
-2. **Data Cleaning**  
-   - Removed duplicates and ages < 18  
-   - Imputed missing values with median  
-   - Optionally capped extreme outliers (99th percentile)
+2. **Exploratory Data Analysis**
+   - Distribution plots and boxplots grouped by default status
+   - Correlation heatmap to identify predictive variables
 
-3. **EDA (Exploratory Data Analysis)**  
-   - Histograms and KDE plots by target class  
-   - Boxplots for feature distribution  
-   - Correlation heatmap for feature relationships
+3. **Preprocessing and Balancing**
+   - Feature scaling using `StandardScaler`
+   - Applied SMOTE to balance the target variable
 
-4. **Data Preprocessing**  
-   - Feature scaling with `StandardScaler`  
-   - SMOTE applied to balance classes (0 vs 1)
-
-5. **Model Training**  
+4. **Modeling**
    - Trained and compared:
-     - `RandomForestClassifier`
-     - `LogisticRegression`  
-   - Evaluated using classification report, ROC AUC, and confusion matrices
+     - Random Forest
+     - Logistic Regression
+   - Evaluated using accuracy, F1 score, recall, and AUC
 
-6. **Threshold Tuning**  
-   - Plotted precision, recall, and F1 vs thresholds  
-   - Optimized model to better balance false positives vs recall
-
----
-
-## Key Insights
-
-- The original data was highly imbalanced (only ~5% defaulters)
-- SMOTE improved recall without sacrificing too much precision
-- Random Forest performed best overall, with robust precision and recall
-- Feature importance revealed that late payments and revolving credit utilization were most predictive
+5. **Threshold Tuning and Evaluation**
+   - Adjusted decision thresholds to improve recall
+   - Analyzed model performance using confusion matrices and ROC curves
+   - Visualized feature importance (Random Forest)
 
 ---
 
-## Model Performance
+## Model Summary
 
-| Metric        | Random Forest | Logistic Regression |
-|---------------|----------------|---------------------|
-| Accuracy      | 91%            | 80%                 |
-| Recall (1)    | 44%            | 74%                 |
-| F1 (1)        | 0.39           | 0.33                |
+| Metric            | Random Forest | Logistic Regression |
+|-------------------|----------------|---------------------|
+| Accuracy          | 91%            | 80%                 |
+| Recall (Class 1)  | 44%            | 74%                 |
+| F1 Score (Class 1)| 0.39           | 0.33                |
+| AUC               | 0.83           | 0.86                |
 
 ---
 
 ## Outputs
 
-- Predictions: `output/random_forest_predictions.csv`
-- Plots: Correlation heatmap, confusion matrix, ROC curve, etc.
+- Model predictions saved to: `output/random_forest_predictions.csv`
+- Key visualizations: correlation heatmap, ROC curves, feature importance
 
 ---
 
-## Future Work
+## Future Improvements
 
-- Try advanced models (XGBoost, LightGBM)
-- Engineer risk-related features (e.g. late score index)
-- Add explainability (SHAP) to justify individual predictions
+- Explore more advanced models (e.g. XGBoost, LightGBM)
+- Add interpretability tools (e.g. SHAP)
+- Engineer domain-specific features such as late payment scores
 
 ---
 
 ## Author
 
 **Thomas Stone-Wigg**  
-Data Analyst in training, focused on finance, sustainability, and high-impact analytics.
-
-
+Aspiring data analyst with an interest in finance, sustainability, and applied analytics.
