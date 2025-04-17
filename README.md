@@ -1,6 +1,6 @@
 # Loan Default Prediction Model
 
-This project predicts whether a loan applicant is likely to experience serious delinquency within the next two years. The aim is to identify high-risk borrowers early using structured credit data and apply practical modeling techniques suited to financial risk environments.
+This project predicts whether a loan applicant is likely to experience serious delinquency within the next two years. The aim is to identify high-risk borrowers early using structured credit data and apply practical modelling techniques suited to financial risk environments.
 
 ---
 
@@ -8,7 +8,7 @@ This project predicts whether a loan applicant is likely to experience serious d
 
 - **Source**: [Give Me Some Credit (Kaggle)](https://www.kaggle.com/c/GiveMeSomeCredit)
 - Training data: `cs-training.csv` (150,000+ rows)
-- Test data: `cs-test.csv` (unlabeled for prediction only)
+- Test data: `cs-test.csv` (unlabelled for prediction only)
 
 ---
 
@@ -27,7 +27,7 @@ This project predicts whether a loan applicant is likely to experience serious d
    - Feature scaling using `StandardScaler`
    - Applied SMOTE to balance the target variable
 
-4. **Modeling**
+4. **Modelling**
    - Trained and compared:
      - Random Forest
      - Logistic Regression
@@ -35,19 +35,20 @@ This project predicts whether a loan applicant is likely to experience serious d
 
 5. **Threshold Tuning and Evaluation**
    - Adjusted decision thresholds to improve recall
-   - Analyzed model performance using confusion matrices and ROC curves
-   - Visualized feature importance (Random Forest)
+   - Analysed model performance using confusion matrices and ROC curves
+   - Visualised feature importance (Random Forest)
 
 ---
 
 ## Model Summary
 
-| Metric            | Random Forest | Logistic Regression |
-|-------------------|----------------|---------------------|
-| Accuracy          | 91%            | 80%                 |
-| Recall (Class 1)  | 44%            | 74%                 |
-| F1 Score (Class 1)| 0.39           | 0.33                |
-| AUC               | 0.83           | 0.86                |
+| Metric             | Random Forest  | Logistic Regression |
+|--------------------|----------------|---------------------|
+| Accuracy           | 91%            | 80%                 |
+| Precision (Class 1)| 36%            | 22%                 |
+| Recall (Class 1)   | 44%            | 74%                 |
+| F1 Score (Class 1) | 0.39           | 0.33                |
+| AUC                | 0.83           | 0.86                |
 
 ---
 
